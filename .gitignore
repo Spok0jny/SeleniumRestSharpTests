@@ -431,4 +431,6 @@ FodyWeavers.xsd
 .idea/
 
 
-.vscode/.DS_Store
+.vscode/
+
+.DS_Store
