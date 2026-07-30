@@ -16,6 +16,7 @@ namespace RestSharpTest1
                 Timeout = TimeSpan.FromMilliseconds(5000)
             };
             client = new RestClient(options);
+            
 
         }
         [OneTimeTearDown]
