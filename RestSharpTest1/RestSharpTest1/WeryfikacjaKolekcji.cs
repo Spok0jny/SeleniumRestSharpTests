@@ -1,4 +1,4 @@
-﻿using RestSharp;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -7,13 +7,12 @@ using System.Xml;
 
 namespace RestSharpTest1
 {
-    public class WeryfikacjaKolekcji
+    public class WeryfikacjaKolekcji : BaseTest
     {
         //Krok Create
         [Test]
         public void CollectionVerification()
         {
-            var client = new RestClient("https://jsonplaceholder.typicode.com");
             var request = new RestRequest("/posts", Method.Post);
 
             var NewPost = new PostRequest //Tworzymy nowy obiekt z danymi do nowego posta

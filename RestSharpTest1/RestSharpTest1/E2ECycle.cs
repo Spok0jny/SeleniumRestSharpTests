@@ -6,14 +6,14 @@ using System.Text;
 
 namespace RestSharpTest1
 {
-    public class E2ECycle
+    public class E2ECycle : BaseTest
     {
         [Test]
         public void EndToEndCycle()
         {
 
             //Post
-            var client = new RestClient("https://jsonplaceholder.typicode.com");
+        
             var request = new RestRequest("/posts", Method.Post);
 
             var NewPost = new PostRequest
@@ -24,6 +24,7 @@ namespace RestSharpTest1
             };
             request.AddJsonBody(NewPost);
             var response = client.Execute<PostRequest>(request);
+            Assert.That(response.Data, Is.Not.Null);
             var createdPostId = response.Data.Id;
 
             //PUT
@@ -41,6 +42,7 @@ namespace RestSharpTest1
             //GET
             var requestGet = new RestRequest($"/posts/{createdPostId}", Method.Get);
             var responseGet = client.Execute<PostRequest>(requestGet);
+            Assert.That(responseGet.Data, Is.Not.Null);
             Assert.That(responseGet.Data.Title, Is.EqualTo("Updated Title"),"Title is not equal to \"Updated Title\"");
 
             //DELETE

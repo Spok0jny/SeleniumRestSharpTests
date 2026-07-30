@@ -3,12 +3,11 @@ using RestSharp;
 
 namespace RestSharpTest1;
 
-public class TestTworzeniaPosta
+public class TestTworzeniaPosta : BaseTest
 {
     [Test]
     public void TestTworzenia()
     {
-        var client = new RestClient("https://jsonplaceholder.typicode.com"); //client czyli adres na ktory bedizemy wysylac pakiet
         var request = new RestRequest("/posts",Method.Post); //request czyli dokladnie to co wysylamy oraz jaka metoda
 
         var nowyPost = new PostRequest //uzywamy post wiec chcemy cos dodac wiec musimy miec co dodac, w tym celu robimy nowy postrequest (z naszej klasy)

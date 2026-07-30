@@ -3,12 +3,11 @@ using RestSharp;
 
 namespace RestSharpTest1;
 
-public class PelnyProcesCRUD
+public class PelnyProcesCRUD : BaseTest
 {
     [Test]
     public void TestCRUD()
     {
-        var client = new RestClient("https://jsonplaceholder.typicode.com"); //client czyli gdzie wysylamy rzadania http
         var request = new RestRequest("/posts", Method.Post); //request czyli nasz endpoint i jaka metoda walimy
 
         var NowyPost = new PostRequest //pakujemy dane w klase 
