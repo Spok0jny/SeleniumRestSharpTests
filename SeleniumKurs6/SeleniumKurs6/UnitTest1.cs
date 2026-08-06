@@ -4,21 +4,11 @@ using OpenQA.Selenium.Chrome;
 namespace SeleniumKurs6
 {
     //Because we have LoginPage.cs class, we can use it in our tests, so we don't have to write the same code again and again, we can just use the methods from LoginPage.cs class
-    public class Tests
+    //Combining it with BaseTest.cs we can only have an acutal Test in a test class
+    internal class Tests : BaseTest
     {
-        private IWebDriver _driver; 
-
-
-
-        [SetUp]
-        public void Setup()
-        {
-            _driver = new ChromeDriver();
-            _driver.Manage().Window.Maximize();
-        }
-
-
-
+        
+    
         [Test]
         public void Test1()
         {
@@ -32,10 +22,6 @@ namespace SeleniumKurs6
             Assert.That(_driver.Url, Does.Contain("/secure"));
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            _driver.Dispose();
-        }
+      
     }
 }
